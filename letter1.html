@@ -9,21 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* --- BASIC RESET --- */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
-  min-height: 100vh;
-  /* Background with Overlay */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(50, 0, 0, 0.7)), url('kiss-bg.jpg');
+body{
+  min-height:100vh;
+  /* Dark Overlay on top of Kiss Background */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(50, 0, 0, 0.8)), url('kiss-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  display: flex;
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
   overflow-x: hidden;
   text-align: center;
   color: white;
@@ -32,84 +32,86 @@ body {
 /* --- ANIMATIONS --- */
 @keyframes glow {
   0% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
-  100% { text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0055; }
+  50% { text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0055; }
+  100% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
+  0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-/* --- TEXT STYLES --- */
+/* --- TYPOGRAPHY --- */
 .hb-text {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #fff;
+  margin-bottom: -10px;
   opacity: 0.9;
 }
 
 .name-glow {
-  font-family: 'Sacramento', cursive;
-  font-size: 4rem;
+  font-family: 'Sacramento', cursive; /* Beautiful Cursive */
+  font-size: 4.5rem;
   color: #fff;
+  /* Neon Glow Effect */
   animation: glow 2s infinite alternate; 
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   transform: rotate(-5deg);
 }
 
-/* --- CAMERA FRAME CONTAINER --- */
+/* --- THE FRAME (Magic Part) --- */
 .frame-container {
   position: relative;
-  width: 300px;  /* Frame ka size */
+  width: 280px; /* Width adjust kar lena */
   height: auto;
-  margin-bottom: 30px;
-  animation: float 3.5s ease-in-out infinite;
-  
-  /* Glassmorphism Effect peeche */
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  margin-bottom: 40px;
+  animation: float 3s ease-in-out infinite;
+  /* Border aur Shadow taaki premium lage */
+  border: 4px solid rgba(255, 255, 255, 0.2);
   padding: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.3);
 }
 
-/* Camera Image (Transparent hone chahiye) */
+/* Camera Image Styling */
 .camera-overlay {
   width: 100%;
   display: block;
   position: relative;
   z-index: 10;
-  pointer-events: none;
+  /* Agar camera image me white box hai, to yeh blend krega */
+  mix-blend-mode: normal; 
+  border-radius: 8px;
 }
 
 /* Photo Inside Screen */
-/* Note: Agar photo position hilani ho to top/left/width change karna */
 .photo-slot {
   position: absolute;
-  top: 15%;      /* Screen upar se kitna neeche hai */
-  left: 13%;     /* Screen left se kitna door hai */
-  width: 55%;    /* Photo ki chaudai */
-  height: 55%;   /* Photo ki lambai */
+  /* Isko hila ke photo adjust krna */
+  top: 15%;     /* Upar se gap */
+  left: 14%;    /* Left se gap */
+  width: 53%;   /* Photo chaudai */
+  height: 56%;  /* Photo lambai */
   object-fit: cover;
   z-index: 5;
-  border-radius: 4px;
-  filter: brightness(1.1);
+  border-radius: 3px;
 }
 
-/* --- MESSAGE BOX --- */
+/* --- MESSAGE --- */
 .message-box {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.8;
   max-width: 320px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 77, 121, 0.3);
+  text-shadow: 1px 1px 2px black;
 }
 
 .highlight {
@@ -121,41 +123,49 @@ body {
 .btn-neon {
   text-decoration: none;
   border: 1px solid #ff4d79;
-  padding: 10px 40px;
+  padding: 12px 35px;
   border-radius: 50px;
   color: #fff;
   font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
   transition: 0.3s;
   background: rgba(255, 77, 121, 0.1);
-  box-shadow: 0 0 15px rgba(255, 77, 121, 0.2);
+  box-shadow: 0 0 10px rgba(255, 77, 121, 0.2);
 }
 
 .btn-neon:hover {
   background: #ff4d79;
-  box-shadow: 0 0 25px #ff4d79;
+  box-shadow: 0 0 20px #ff4d79;
   color: white;
 }
+
 </style>
 </head>
 
 <body>
 
+  <!-- Heading -->
   <div class="hb-text">Happy Birthday</div>
   <div class="name-glow">Appu</div>
 
+  <!-- Main Visual Area -->
   <div class="frame-container">
-    <!-- Yahan 'camera-transparent.png' wo file hai jo tu remove.bg se download karega -->
-    <img src="camera-transparent.png" class="camera-overlay" alt="Camera Frame">
+    <!-- Camera Frame (Make sure naam sahi ho) -->
+    <img src="camera-frame.png" class="camera-overlay" alt="Camera">
     
-    <!-- Yeh photo hai jo screen ke andar dikhegi -->
+    <!-- User Photo Inside -->
+    <!-- Cake ki jagah apni photo ka link daal dena -->
     <img src="https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=2000&auto=format&fit=crop" class="photo-slot">
   </div>
 
+  <!-- Message -->
   <div class="message-box">
-    "Some people search their whole lives to find what I found in you.<br><br>
+    "Some people search their whole lives to find what I found in you. <br><br>
     The world got a little <span class="highlight">brighter</span> the moment you arrived." ✨
   </div>
 
+  <!-- Back Button -->
   <a href="index.html" class="btn-neon">BACK</a>
 
 </body>
