@@ -62,41 +62,38 @@ body{
   transform: rotate(-5deg);
 }
 
-/* --- FRAME CONTAINER (No Background Box) --- */
+/* --- FRAME CONTAINER --- */
 .frame-container {
   position: relative;
-  width: 320px; /* Camera ka size yahan se adjust karein */
+  width: 320px; /* Camera size */
   height: auto;
   margin-bottom: 40px;
   animation: float 3s ease-in-out infinite;
-  
-  /* Puraana border/background hata diya hai */
   background: transparent;
   box-shadow: none;
   border: none;
 }
 
-/* --- CAMERA IMAGE (Neeche) --- */
+/* --- CAMERA IMAGE --- */
 .camera-overlay {
   width: 100%;
   display: block;
   position: relative;
-  /* Z-INDEX 1: Camera neeche rahega agar photo upar laani hai */
   z-index: 1; 
   filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
 }
 
-/* --- USER PHOTO (Upar) --- */
+/* --- USER PHOTO (ADJUSTED HERE) --- */
 .photo-slot {
   position: absolute;
-  /* Z-INDEX 2: Photo Camera ke UPAR aayegi */
-  z-index: 2;
+  z-index: 2; /* Camera ke upar */
   
-  /* IMPORTANT: Yahan se photo ko hila ke fit karein */
-  top: 18%;      /* Upar se gap */
-  left: 16%;     /* Left se gap */
-  width: 53%;    /* Photo ki chaudai */
-  height: 56%;   /* Photo ki lambai */
+  /* --- FIXING ALIGNMENT --- */
+  /* Maine Left badha diya hai taaki photo right shift ho */
+  top: 25%;      /* Thoda aur neeche kiya */
+  left: 28%;     /* Isko badhaya taaki photo screen ke andar aaye */
+  width: 44%;    /* Width kam ki taaki buttons na chupein */
+  height: 49%;   /* Height fit ki */
   
   object-fit: cover;
   border-radius: 2px;
@@ -144,29 +141,22 @@ body{
 
 <body>
 
-  <!-- Heading -->
   <div class="hb-text">Happy Birthday</div>
   <div class="name-glow">Appu</div>
 
-  <!-- Main Visual Area -->
   <div class="frame-container">
-    
-    <!-- IMPORTANT: Check Image Path -->
-    <!-- Agar camera folder me hai to src="folderName/camera-frame.png" likho -->
+    <!-- Camera Frame -->
     <img src="camera-frame.png" class="camera-overlay" alt="Camera">
     
     <!-- User Photo -->
     <img src="https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=2000&auto=format&fit=crop" class="photo-slot">
-  
   </div>
 
-  <!-- Message -->
   <div class="message-box">
     "Some people search their whole lives to find what I found in you. <br><br>
     The world got a little <span class="highlight">brighter</span> the moment you arrived." ✨
   </div>
 
-  <!-- Back Button -->
   <a href="index.html" class="btn-neon">BACK</a>
 
 </body>
