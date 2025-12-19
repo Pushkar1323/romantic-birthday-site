@@ -1,0 +1,136 @@
+/* --- RESET & BASIC SETUP --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  /* Background Image Setup */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(50, 0, 0, 0.8)), url('../kiss-bg.jpg'); 
+  /* Note: Agar css folder me hai file, to image ke liye '../' lagana padega agar image bahar hai */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+  text-align: center;
+  color: white;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
+  50% { text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0055; }
+  100% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- TEXT STYLES --- */
+.hb-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: -10px;
+  opacity: 0.9;
+}
+
+.name-glow {
+  font-family: 'Sacramento', cursive;
+  font-size: 4.5rem;
+  color: #fff;
+  animation: glow 2s infinite alternate; 
+  margin-bottom: 30px;
+  transform: rotate(-5deg);
+}
+
+/* --- MAIN FRAME (CAMERA & PHOTO) --- */
+.frame-container {
+  position: relative;
+  width: 320px;  /* Camera ka size yahan se control karo */
+  height: auto;  /* Height automatic rahegi */
+  margin-bottom: 40px;
+  animation: float 3s ease-in-out infinite;
+  
+  /* Puraana background/border hata diya */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* 1. Camera Image (Neeche rahegi) */
+.camera-overlay {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1; /* Camera Layer 1 */
+  /* Camera ki shadow taaki hawa me lage */
+  filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
+}
+
+/* 2. Photo Inside (Upar rahegi) */
+.photo-slot {
+  position: absolute;
+  z-index: 2; /* Photo Layer 2 (Camera ke upar) */
+  
+  /* --- YAHAN SE SETTING KARNI HAI --- */
+  /* Screenshot dekh ke lag raha hai screen thodi left me hai */
+  
+  top: 18%;      /* Upar se kitna neeche */
+  left: 16%;     /* Left se kitna aage */
+  width: 55%;    /* Photo ki chaudai (Screen size) */
+  height: 58%;   /* Photo ki lambai */
+  
+  object-fit: cover; /* Photo stretch nahi hogi, crop hogi */
+  border-radius: 2px; /* Thoda sa round corner screen ke liye */
+}
+
+/* --- MESSAGE BOX --- */
+.message-box {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px black;
+}
+
+.highlight {
+  color: #ff4d79;
+  font-weight: 600;
+}
+
+/* --- BUTTON --- */
+.btn-neon {
+  text-decoration: none;
+  border: 1px solid #ff4d79;
+  padding: 12px 35px;
+  border-radius: 50px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  background: rgba(255, 77, 121, 0.1);
+  box-shadow: 0 0 10px rgba(255, 77, 121, 0.2);
+}
+
+.btn-neon:hover {
+  background: #ff4d79;
+  box-shadow: 0 0 20px #ff4d79;
+  color: white;
+       }
