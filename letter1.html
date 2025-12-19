@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Happy Birthday Appu ❤️</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Cursive Fonts Import -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
 <style>
 /* Reset */
@@ -14,136 +14,139 @@
 
 body{
   min-height:100vh;
-  font-family:'Poppins',sans-serif;
-  /* Background image jo tere folder me hai */
-  background: url('kiss-bg.jpg') repeat center center;
-  background-size: cover; /* Background cover karega screen ko */
+  /* Tera background image */
+  background: url('kiss-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
+  overflow-x: hidden;
 }
 
-/* Glassy White Card */
-.card{
-  background: rgba(255, 255, 255, 0.92); /* Thoda transparent */
-  border-radius: 25px;
-  max-width: 400px;
+/* --- GLASS EFFECT CARD (Yeh hai wo magic) --- */
+.glass-card{
+  /* Safed rang hata ke glass effect lagaya hai */
+  background: rgba(255, 255, 255, 0.65); 
+  backdrop-filter: blur(8px); /* Piche ka background dhundhla dikhega */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  max-width: 380px;
   width: 100%;
-  padding: 30px 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  padding: 35px 20px;
   text-align: center;
-  border: 1px solid rgba(255,255,255,0.5);
-  animation: slideUp 1s ease forwards;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  animation: floatUp 1.2s ease-out;
 }
 
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:none}
+@keyframes floatUp{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
+/* Happy Birthday Styling */
 h1{
-  font-family:'Playfair Display',serif;
-  color:#b71c1c; /* Deep Red */
-  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #8b0000; /* Dark Red */
+  font-size: 2.2rem;
   margin-bottom: 5px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.sub-head {
+/* APPU Highlight */
+.name-highlight {
+  font-family: 'Great Vibes', cursive; /* Mast cursive font */
+  font-size: 3.5rem; /* Naam bada kiya hai */
   color: #d32f2f;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* --- CAMERA SETUP --- */
-.camera-container {
+/* --- CAMERA FIX --- */
+.camera-wrapper {
   position: relative;
-  width: 280px; /* Camera size adjust karne ke liye */
-  margin: 0 auto 25px;
+  width: 260px; /* Camera ka size */
+  margin: 0 auto 20px;
 }
 
-/* Silver Camera Image */
-.cam-frame {
+.camera-img {
   width: 100%;
   display: block;
+  z-index: 10;
   position: relative;
-  z-index: 10; /* Camera upar rahega frame ke */
-  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.25));
 }
 
-/* User Photo (Screen ke andar) */
-.screen-photo {
+/* Photo Adjustment */
+.photo-inside {
   position: absolute;
-  /* --- YEH SETTINGS IMPORTANT HAIN --- */
-  /* Agar photo screen se bahar nikle toh inko adjust krna */
-  top: 13%;       /* Upar se gap */
-  left: 11.5%;    /* Left se gap */
-  width: 53.5%;   /* Photo ki chaudai */
-  height: 59%;    /* Photo ki lambai */
-  /* ---------------------------------- */
+  /* --- IMPORTANT: Isko change karke photo adjust krna --- */
+  top: 14%;      /* Upar se thoda niche */
+  left: 12%;     /* Left se thoda andar */
+  width: 53%;    /* Screen ki chaudai */
+  height: 60%;   /* Screen ki lambai */
+  /* ---------------------------------------------------- */
   object-fit: cover;
-  z-index: 11; /* Photo camera ke upar (screen area pe) dikhegi */
+  z-index: 11;
   border-radius: 2px;
 }
 
-/* Text Styling */
-.text-content {
-  font-size: 0.95rem;
-  color: #333;
-  line-height: 1.7;
+/* Message Styling (Cursive) */
+.message {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem; /* Text thoda bada padhne ke liye */
+  color: #5a0000;
+  line-height: 1.4;
   margin-bottom: 25px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Back Button */
-.btn-back {
+.btn-glass {
   display: inline-block;
   text-decoration: none;
-  background: linear-gradient(45deg, #d32f2f, #b71c1c);
-  color: #fff;
-  padding: 12px 30px;
+  background: rgba(139, 0, 0, 0.9);
+  color: white;
+  padding: 10px 25px;
   border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
-  box-shadow: 0 5px 15px rgba(183, 28, 28, 0.4);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+  transition: 0.3s;
 }
-
-.btn-back:active {
-  transform: scale(0.95);
-}
+.btn-glass:hover { transform: scale(1.05); background: #a00000; }
 
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="glass-card">
   <h1>Happy Birthday</h1>
-  <div class="sub-head">My Dear Appu ❤️</div>
+  <!-- Naam ko highlight kiya hai -->
+  <span class="name-highlight">Appu ❤️</span>
 
   <!-- Camera Section -->
-  <div class="camera-container">
-    <!-- Camera Image (Tere folder wala) -->
-    <img src="camera-frame.png" class="cam-frame" alt="Camera">
+  <div class="camera-wrapper">
+    <!-- Camera Image -->
+    <img src="camera-frame.png" class="camera-img" alt="Camera">
     
-    <!-- Photo Inside Screen -->
-    <!-- Abhi maine cake lagaya hai, baad me apni photo ka link daal dena -->
-    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop" class="screen-photo">
+    <!-- Photo Inside -->
+    <!-- Cake ki photo hata ke apni photo ka link daal dena -->
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" class="photo-inside">
   </div>
 
-  <div class="text-content">
+  <div class="message">
     "Today is special not just because<br>
     you were born, but because<br>
     the world got a little brighter<br>
     the moment you arrived." ✨
   </div>
 
-  <!-- Back Button -->
-  <a href="index.html" class="btn-back">🔙 Back to Envelopes</a>
+  <a href="index.html" class="btn-glass">🔙 Back to Envelopes</a>
 </div>
 
 </body>
