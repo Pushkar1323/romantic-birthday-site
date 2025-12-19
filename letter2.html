@@ -4,112 +4,134 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Letter Two – Appu</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Fonts update kiye hain for better look -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* Basic Reset */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   min-height:100vh;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(180deg,#fff6f3,#f0dfda);
+  /* Thoda soft pinkish gradient */
+  background:linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px;
-  color:#3b0000;
+  padding:20px;
+  color:#4a4a4a;
 }
 
 .card{
-  background:#fff;
-  border-radius:22px;
-  max-width:420px;
+  background:rgba(255, 255, 255, 0.9);
+  border-radius:20px;
+  max-width:400px;
   width:100%;
-  padding:26px 22px 30px;
-  box-shadow:0 30px 70px rgba(0,0,0,.25);
-  animation:slideUp 1s ease forwards;
+  padding:30px 20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  text-align:center;
+  animation:fadeIn 1.5s ease;
+  border: 1px solid #fff;
 }
 
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(60px)}
-  to{opacity:1;transform:none}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h1{
-  font-family:'Playfair Display',serif;
-  text-align:center;
-  color:#8b0000;
-  font-size:1.7rem;
+  font-family:'Dancing Script', cursive; /* Handwriting font */
+  color:#d6336c; /* Dark Pink */
+  font-size:2.2rem;
+  margin-bottom: 5px;
 }
 
 .sub{
-  text-align:center;
-  margin-top:6px;
-  font-size:.9rem;
-  opacity:.8;
+  font-size:0.85rem;
+  color: #888;
+  margin-bottom: 25px;
+}
+
+.polaroid-container {
+  position: relative;
+  width: 240px;
+  margin: 0 auto 25px;
+  background: white;
+  padding: 12px 12px 50px 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: rotate(-3deg); /* Photo ko thoda tedha kiya */
+  transition: transform 0.3s ease;
+}
+
+.polaroid-container:hover {
+  transform: rotate(0deg) scale(1.05); /* Hover karne pe seedha hoga */
+}
+
+.polaroid-container img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+  /* Placeholder color agar photo load na ho */
+  background-color: #eee; 
+  min-height: 200px;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #555;
 }
 
 .text{
-  margin-top:18px;
-  font-size:.95rem;
-  line-height:1.85;
-  text-align:center;
+  font-size:0.95rem;
+  line-height:1.6;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-.frame{
-  margin:24px auto 0;
-  width:260px;
-  position:relative;
-}
-
-.frame img{
-  width:100%;
-  display:block;
-}
-
-.frame .screen{
-  position:absolute;
-  inset:18% 14% 22% 14%;
-  background:#111;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-size:.75rem;
-  opacity:.7;
+.text b {
+  color: #d6336c;
 }
 
 .note{
-  margin-top:18px;
-  text-align:center;
-  font-size:.75rem;
-  opacity:.65;
+  font-size:0.75rem;
+  color:#aaa;
+  margin-top: 15px;
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <h1>A Little Memory</h1>
-  <div class="sub">captured just for us 📸</div>
+  <h1>A Lovely Memory</h1>
+  <div class="sub">Captured just for us ✨</div>
+
+  <!-- POLAROID SECTION STARTS -->
+  <div class="polaroid-container">
+    <!-- IMPORTANT: Niche apni photo ka naam daalna (eg: us.jpg) -->
+    <!-- Agar photo nahi hai toh abhi ek cute placeholder hai -->
+    <img src="https://images.unsplash.com/photo-1516575334481-f85287c2c81d?q=80&w=2000&auto=format&fit=crop" alt="Our Memory">
+    <div class="caption">You & Me ❤️</div>
+  </div>
+  <!-- POLAROID SECTION ENDS -->
 
   <div class="text">
     Some moments don’t need filters,<br>
-    edits, or perfect angles.<br><br>
-    They just need <b>you</b> in the frame —
-    and suddenly, everything feels right.
-  </div>
-
-  <div class="frame">
-    <img src="camera-frame.png" alt="camera frame">
-    <div class="screen">Your photo will go here</div>
+    they just need <b>you</b>.<br>
+    Whenever I look at this,<br> everything feels right.
   </div>
 
   <div class="note">
-    More memories waiting in the next letter 🤍
+    More memories waiting in the next letter...
   </div>
 </div>
 
