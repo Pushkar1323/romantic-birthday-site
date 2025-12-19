@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Happy Birthday Appu ❤️</title>
 
-<!-- Aesthetic Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 /* Reset */
@@ -14,8 +14,8 @@
 
 body{
   min-height:100vh;
-  /* Jaisa us photo me dark maroon tha, waisa vibe banaya hai kiss-bg.jpg ke sath */
-  background: linear-gradient(rgba(40, 0, 0, 0.6), rgba(60, 0, 0, 0.7)), url('kiss-bg.jpg');
+  /* Dark Overlay on top of Kiss Background */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(50, 0, 0, 0.8)), url('kiss-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -25,103 +25,119 @@ body{
   justify-content:center;
   padding:20px;
   overflow-x: hidden;
-  color: white;
   text-align: center;
+  color: white;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
+  50% { text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0055; }
+  100% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 /* --- TYPOGRAPHY --- */
-.title {
+.hb-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 0px;
+  color: #fff;
+  margin-bottom: -10px;
   opacity: 0.9;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.name-highlight {
-  font-family: 'Dancing Script', cursive;
-  font-size: 4.5rem; /* Naam bohot bada aur sundar */
-  color: #ffcccc; /* Soft Pinkish White */
-  text-shadow: 0 0 15px rgba(255, 100, 100, 0.6);
-  margin-top: -10px;
+.name-glow {
+  font-family: 'Sacramento', cursive; /* Beautiful Cursive */
+  font-size: 4.5rem;
+  color: #fff;
+  /* Neon Glow Effect */
+  animation: glow 2s infinite alternate; 
   margin-bottom: 30px;
-  display: block;
-  transform: rotate(-3deg); /* Thoda stylish tedha */
+  transform: rotate(-5deg);
 }
 
-/* --- CAMERA & PHOTO SETUP --- */
-.collage-wrapper {
+/* --- THE FRAME (Magic Part) --- */
+.frame-container {
   position: relative;
-  width: 300px;
+  width: 280px; /* Width adjust kar lena */
+  height: auto;
   margin-bottom: 40px;
-  /* Pura camera thoda tilt kiya hai aesthetic look ke liye */
-  transform: rotate(3deg); 
-  transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  /* Border aur Shadow taaki premium lage */
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.3);
 }
 
-.collage-wrapper:hover {
-  transform: rotate(0deg) scale(1.02); /* Touch karne pe seedha hoga */
-}
-
-.camera-img {
+/* Camera Image Styling */
+.camera-overlay {
   width: 100%;
   display: block;
-  z-index: 10;
   position: relative;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+  z-index: 10;
+  /* Agar camera image me white box hai, to yeh blend krega */
+  mix-blend-mode: normal; 
+  border-radius: 8px;
 }
 
-.photo-inside {
+/* Photo Inside Screen */
+.photo-slot {
   position: absolute;
-  /* --- PHOTO SETTINGS (Adjust if needed) --- */
-  top: 13.5%;
-  left: 12%;
-  width: 53%;
-  height: 59%;
-  /* ---------------------------------------- */
+  /* Isko hila ke photo adjust krna */
+  top: 15%;     /* Upar se gap */
+  left: 14%;    /* Left se gap */
+  width: 53%;   /* Photo chaudai */
+  height: 56%;  /* Photo lambai */
   object-fit: cover;
-  z-index: 5; /* Camera ke piche lekin body ke upar */
-  border-radius: 2px;
-  /* Photo ko thoda purana/warm look diya hai */
-  filter: sepia(10%) contrast(1.1); 
+  z-index: 5;
+  border-radius: 3px;
 }
 
-/* --- TEXT MESSAGE --- */
-.message-area {
+/* --- MESSAGE --- */
+.message-box {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.8;
-  max-width: 350px;
-  background: rgba(0, 0, 0, 0.4); /* Halka dark background text ke piche */
-  backdrop-filter: blur(5px);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.2);
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px black;
 }
 
-/* --- BACK BUTTON --- */
-.btn-style {
+.highlight {
+  color: #ff4d79;
+  font-weight: 600;
+}
+
+/* --- BUTTON --- */
+.btn-neon {
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.6);
-  padding: 10px 30px;
-  border-radius: 30px;
-  color: white;
+  border: 1px solid #ff4d79;
+  padding: 12px 35px;
+  border-radius: 50px;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 0.85rem;
-  text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.3s;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 77, 121, 0.1);
+  box-shadow: 0 0 10px rgba(255, 77, 121, 0.2);
 }
 
-.btn-style:hover {
-  background: white;
-  color: #330000;
-  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+.btn-neon:hover {
+  background: #ff4d79;
+  box-shadow: 0 0 20px #ff4d79;
+  color: white;
 }
 
 </style>
@@ -130,26 +146,27 @@ body{
 <body>
 
   <!-- Heading -->
-  <div class="title">Happy Birthday</div>
-  <div class="name-highlight">Appu ❤️</div>
+  <div class="hb-text">Happy Birthday</div>
+  <div class="name-glow">Appu</div>
 
-  <!-- Camera Element -->
-  <div class="collage-wrapper">
-    <!-- Camera Image -->
-    <img src="camera-frame.png" class="camera-img" alt="Camera">
+  <!-- Main Visual Area -->
+  <div class="frame-container">
+    <!-- Camera Frame (Make sure naam sahi ho) -->
+    <img src="camera-frame.png" class="camera-overlay" alt="Camera">
     
-    <!-- Photo Inside (Apni photo ka link yahan daalna) -->
-    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop" class="photo-inside">
+    <!-- User Photo Inside -->
+    <!-- Cake ki jagah apni photo ka link daal dena -->
+    <img src="https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=2000&auto=format&fit=crop" class="photo-slot">
   </div>
 
   <!-- Message -->
-  <div class="message-area">
+  <div class="message-box">
     "Some people search their whole lives to find what I found in you. <br><br>
-    The world got a little brighter the moment you arrived." ✨
+    The world got a little <span class="highlight">brighter</span> the moment you arrived." ✨
   </div>
 
   <!-- Back Button -->
-  <a href="index.html" class="btn-style">BACK</a>
+  <a href="index.html" class="btn-neon">BACK</a>
 
 </body>
 </html>
