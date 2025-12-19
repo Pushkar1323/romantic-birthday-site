@@ -3,107 +3,141 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Letter Two – Appu</title>
-<!-- Fonts update kiye hain for better look -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Happy Birthday Appu ❤️</title>
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* Basic Reset */
+/* Reset */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   min-height:100vh;
-  font-family:'Poppins',sans-serif;
-  /* Thoda soft pinkish gradient */
-  background:linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+  /* Dark Overlay on top of Kiss Background */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(50, 0, 0, 0.8)), url('kiss-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   display:flex;
+  flex-direction: column;
   align-items:center;
   justify-content:center;
   padding:20px;
-  color:#4a4a4a;
+  overflow-x: hidden;
+  text-align: center;
+  color: white;
 }
 
-.card{
-  background:rgba(255, 255, 255, 0.9);
-  border-radius:20px;
-  max-width:400px;
-  width:100%;
-  padding:30px 20px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.1);
-  text-align:center;
-  animation:fadeIn 1.5s ease;
-  border: 1px solid #fff;
+/* --- ANIMATIONS --- */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
+  50% { text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0055; }
+  100% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055; }
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-h1{
-  font-family:'Dancing Script', cursive; /* Handwriting font */
-  color:#d6336c; /* Dark Pink */
-  font-size:2.2rem;
-  margin-bottom: 5px;
+/* --- TYPOGRAPHY --- */
+.hb-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: -10px;
+  opacity: 0.9;
 }
 
-.sub{
-  font-size:0.85rem;
-  color: #888;
-  margin-bottom: 25px;
+.name-glow {
+  font-family: 'Sacramento', cursive; /* Beautiful Cursive */
+  font-size: 4.5rem;
+  color: #fff;
+  /* Neon Glow Effect */
+  animation: glow 2s infinite alternate; 
+  margin-bottom: 30px;
+  transform: rotate(-5deg);
 }
 
-.polaroid-container {
+/* --- THE FRAME (Magic Part) --- */
+.frame-container {
   position: relative;
-  width: 240px;
-  margin: 0 auto 25px;
-  background: white;
-  padding: 12px 12px 50px 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transform: rotate(-3deg); /* Photo ko thoda tedha kiya */
-  transition: transform 0.3s ease;
+  width: 280px; /* Width adjust kar lena */
+  height: auto;
+  margin-bottom: 40px;
+  animation: float 3s ease-in-out infinite;
+  /* Border aur Shadow taaki premium lage */
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.3);
 }
 
-.polaroid-container:hover {
-  transform: rotate(0deg) scale(1.05); /* Hover karne pe seedha hoga */
-}
-
-.polaroid-container img {
+/* Camera Image Styling */
+.camera-overlay {
   width: 100%;
   display: block;
-  border-radius: 2px;
-  /* Placeholder color agar photo load na ho */
-  background-color: #eee; 
-  min-height: 200px;
-  object-fit: cover;
+  position: relative;
+  z-index: 10;
+  /* Agar camera image me white box hai, to yeh blend krega */
+  mix-blend-mode: normal; 
+  border-radius: 8px;
 }
 
-.caption {
+/* Photo Inside Screen */
+.photo-slot {
   position: absolute;
-  bottom: 15px;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.2rem;
-  color: #555;
+  /* Isko hila ke photo adjust krna */
+  top: 15%;     /* Upar se gap */
+  left: 14%;    /* Left se gap */
+  width: 53%;   /* Photo chaudai */
+  height: 56%;  /* Photo lambai */
+  object-fit: cover;
+  z-index: 5;
+  border-radius: 3px;
 }
 
-.text{
-  font-size:0.95rem;
-  line-height:1.6;
-  color: #555;
-  margin-bottom: 20px;
+/* --- MESSAGE --- */
+.message-box {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px black;
 }
 
-.text b {
-  color: #d6336c;
+.highlight {
+  color: #ff4d79;
+  font-weight: 600;
 }
 
-.note{
-  font-size:0.75rem;
-  color:#aaa;
-  margin-top: 15px;
+/* --- BUTTON --- */
+.btn-neon {
+  text-decoration: none;
+  border: 1px solid #ff4d79;
+  padding: 12px 35px;
+  border-radius: 50px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  background: rgba(255, 77, 121, 0.1);
+  box-shadow: 0 0 10px rgba(255, 77, 121, 0.2);
+}
+
+.btn-neon:hover {
+  background: #ff4d79;
+  box-shadow: 0 0 20px #ff4d79;
+  color: white;
 }
 
 </style>
@@ -111,29 +145,28 @@ h1{
 
 <body>
 
-<div class="card">
-  <h1>A Lovely Memory</h1>
-  <div class="sub">Captured just for us ✨</div>
+  <!-- Heading -->
+  <div class="hb-text">Happy Birthday</div>
+  <div class="name-glow">Appu</div>
 
-  <!-- POLAROID SECTION STARTS -->
-  <div class="polaroid-container">
-    <!-- IMPORTANT: Niche apni photo ka naam daalna (eg: us.jpg) -->
-    <!-- Agar photo nahi hai toh abhi ek cute placeholder hai -->
-    <img src="https://images.unsplash.com/photo-1516575334481-f85287c2c81d?q=80&w=2000&auto=format&fit=crop" alt="Our Memory">
-    <div class="caption">You & Me ❤️</div>
-  </div>
-  <!-- POLAROID SECTION ENDS -->
-
-  <div class="text">
-    Some moments don’t need filters,<br>
-    they just need <b>you</b>.<br>
-    Whenever I look at this,<br> everything feels right.
+  <!-- Main Visual Area -->
+  <div class="frame-container">
+    <!-- Camera Frame (Make sure naam sahi ho) -->
+    <img src="camera-frame.png" class="camera-overlay" alt="Camera">
+    
+    <!-- User Photo Inside -->
+    <!-- Cake ki jagah apni photo ka link daal dena -->
+    <img src="https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=2000&auto=format&fit=crop" class="photo-slot">
   </div>
 
-  <div class="note">
-    More memories waiting in the next letter...
+  <!-- Message -->
+  <div class="message-box">
+    "Some people search their whole lives to find what I found in you. <br><br>
+    The world got a little <span class="highlight">brighter</span> the moment you arrived." ✨
   </div>
-</div>
+
+  <!-- Back Button -->
+  <a href="index.html" class="btn-neon">BACK</a>
 
 </body>
 </html>
